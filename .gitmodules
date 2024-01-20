@@ -1,0 +1,4 @@
+[submodule "DonationAlertsApiClient"]
+	path = DonationAlertsApiClient
+	url = git@github.com:Lavriko-ONI-Mod/DonationAlertsApiClient.git
+	branch = lavriko
