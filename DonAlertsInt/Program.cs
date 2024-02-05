@@ -19,6 +19,14 @@ server.Start();
 
 Console.WriteLine("Server started");
 
+Task.Run(
+    async () =>
+    {
+        await Task.Delay(100);
+        await new HttpClient().GetAsync("http://localhost:27629/init");
+        Console.WriteLine("Self initialized");
+    });
+
 var initWaiter = new TaskCompletionSource();
 
 var donationQueue = new Queue<DonationAlertData>();
@@ -27,6 +35,7 @@ var resetEvent = new AutoResetEvent(false);
 bool isAuthorizing = false;
 
 var accessToken = "";
+
 
 while (server.IsListening)
 {
